@@ -1,0 +1,13 @@
+.main {
+  $num: 40px;
+  width: calc(100% - 10px);
+  width: 10px + 10;
+  width: 50px - -50;
+  width: 10px * 3;
+  width: (40px / 6);
+  width: $num / 6;
+  width: 40px % 6;
+  width: floor(40px / 6);
+  width: ceil(40px / 6);
+  width: round(40px / 6);
+}
