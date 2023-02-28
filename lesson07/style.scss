@@ -1,0 +1,95 @@
+@mixin boxContent {
+  width: 300px;
+  height: 300px;
+}
+.main-box {
+  @include boxContent;
+  background: #ff0000;
+}
+.sub-box {
+  @include boxContent;
+  background: #0011ff;
+}
+
+@mixin boxContent($value) {
+  width: $value;
+  height: $value;
+}
+.main-box {
+  @include boxContent(300px);
+  background: #ff0000;
+}
+.sub-box {
+  @include boxContent(100px);
+  background: #0011ff;
+}
+
+@mixin boxContent($value: 300px) {
+  width: $value;
+  height: $value;
+}
+.main-box {
+  @include boxContent;
+  background: #ff0000;
+}
+ .sub-box {
+  @include boxContent(100px);
+  background: #0011ff;
+}
+
+@mixin boxContent($value: 300px, $margin: 0 auto, $padding: 0) {
+  width: $value;
+  height: $value;
+  margin: $margin;
+  padding: $padding;
+}
+.main-box {
+  @include boxContent;
+  background: #ff0000;
+}
+.sub-box {
+  @include boxContent(10px, 0 50px, 20px);
+  background: #0011ff;
+}
+
+.main-box {
+  @mixin boxContent($value: 600px, $margin: 0 auto, $padding: 0) {
+  width: $value;
+  height: $value;
+  margin: $margin;
+  padding: $padding;
+  }
+  .sub-box {
+    @include boxContent(2px, 0 50px, 20px);
+    background: #0011ff;
+  }
+}
+// エラーを起こす
+// .sub-box {
+// @include boxContent(100px, 0 50px, 20px);
+// background: #0011ff;
+// }
+//vs codeだとエラーはでないが、後述で書き換えられる上、@includeの対象のみが動作し、@mixinの対象が動作していない。
+
+@mixin media($media-width: 768px) {
+  @media screen and (max-width: $media-width) {
+  @content
+  }
+}
+ .item {
+  image {
+  float: left;
+  // SP版
+  @include media(1024px) {
+  float: none;
+  }
+  }
+  .text {
+  overflow: hidden;
+  margin-left: 15px;
+  // SP版
+  @include media {
+  margin-left: 0;
+  }
+  }
+}
