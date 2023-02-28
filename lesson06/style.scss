@@ -1,0 +1,62 @@
+.main-box {
+ width: 300px;
+ height: 300px;
+ background: #ff0000;
+}
+.sub-box {
+ @extend .main-box;
+}
+.is-flex {
+  display: flex;
+}
+.main-box {
+width: 300px;
+height: 300px;
+background: #ff0000;
+}
+.sub-box {
+@extend .main-box;
+@extend .is-flex;
+}
+.is-flex {
+display: flex;
+}
+.main-box {
+width: 300px;
+height: 300px;
+background: #ff0000;
+}
+.mini-box-area {
+width: 100px;
+height: 100px;
+}
+.sub-box {
+position: relative;
+@extend .main-box;
+@extend .is-flex;
+&-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #0008f3;
+  @extend .mini-box-area;
+}
+}
+
+#main {
+  width: 300px;
+  height: 300px;
+  background: #ff0000;
+  &-box {
+    display: flex;
+  }
+}
+ul li p {
+  background-color: #0008f3;
+}
+.sec01 {
+  @extend #main;
+  @extend ul li p; //セレクターは単独のみ
+  @extend p; //pより前につけている親要素の入れ子になってしまう
+  @extend &-box; //アンパサンドは使用できない
+}
