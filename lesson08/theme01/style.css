@@ -1,0 +1,26 @@
+.box {
+  width: 400px;
+  height: 600px;
+  background-color: #65f858;
+  display: block;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .box {
+    width: 300px;
+    height: 400px;
+    background-color: #26ccff;
+    display: block;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: #e72525;
+    display: block;
+    margin: 0 auto;
+  }
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,18 @@
+@import '_common.scss';
+@each $key, $value in $map {
+  .content__sns__btn.is-#{$key} {
+    @include btn($value);
+  }
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  &__sns {
+    list-style: none;
+  }
+}
+
+/* ボタンのタグはaタグを使用しました。フォーム等の送信ボタンの類ではなく、単にサイトリンクを
+貼っているだけのものなので、汎用性の高いaタグで作成しました。また、外部サイトになると思われるので、
+target="_blank"で別タグで開くよう設定しました。 */

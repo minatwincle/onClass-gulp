@@ -1,0 +1,33 @@
+// ifの処理を@mixinの中で⾏い、対象のクラスの中で展開し、ifの条件で通ったCSSのプロパティーを反映させてください
+@mixin boxContent($width: 100px,$height: 100px,$bgColor: #e72525) {
+  width: $width;
+  height: $height;
+  background-color: $bgColor;
+  display: block;
+  margin: 0 auto;
+}
+@mixin funcIf($mediaWidth) {
+  @if $mediaWidth == 768px {
+    @media screen and (max-width:768px) {
+      .box {
+        @include boxContent;
+      }
+    }
+  }
+  @else if $mediaWidth == 1024px {
+    @media screen and (max-width:1024px) {
+      .box {
+        @include boxContent(300px, 400px, #26ccff);
+      }
+    }
+  }
+  @else {
+    .box {
+      @include boxContent(400px, 600px, #65f858)
+    }
+  }
+}
+
+  @include funcIf(1);
+  @include funcIf(1024px);
+  @include funcIf(768px);

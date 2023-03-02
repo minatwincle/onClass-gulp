@@ -1,0 +1,65 @@
+$floatValue: true;
+@if $floatValue {
+  .is-float {
+  float: left;
+  }
+}
+@else {
+  .is-float {
+  float: right;
+  }
+}
+
+$bgColor: 1;
+@if $bgColor == 0 {
+  .bg-color {
+  background-color: red;
+  }
+}
+@else if $bgColor == 1 {
+  .bg-color {
+  background-color: blue;
+  }
+}
+@else {
+  .bg-color {
+  background-color: green;
+  }
+}
+
+@for $value from 1 through 3 {
+  .through-sample-#{$value * 10} {
+  margin: 10px * $value;
+  }
+}
+@for $value from 1 to 3 {
+  .to-sample-#{$value * 10} {
+  margin: 10px * $value;
+  }
+}
+
+$value: 20;
+@while $value >= 0 {
+  .while-sample-#{$value} {
+  margin: $value + px;
+  }
+  $value: $value - 10;
+}
+
+$bgColor:#acc1ed,#dc7668,#71d0f2;
+@each $value in $bgColor {
+  .bg-color {
+  background: $value;
+  }
+}
+
+$map: (
+  "header": #acc1ed,
+  "main": #dc7668,
+  "footer": #71d0f2,
+);
+@each $key, $value in $map {
+  .#{$key}-bg-color {
+  background: $value;
+  }
+}
